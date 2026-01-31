@@ -1,4 +1,3 @@
-
 from typing import Set
 
 class bcolors:
@@ -19,11 +18,15 @@ class Arguments:
         '--input', '-in',
         '--output', '-out',
         '--bytecode',
+        '--lambda',
+        '--hybrid',
         '--compress',
     }
 
     OBFISCATION_METHODS: Set[str] = {
         '--bytecode',
+        '--hybrid',
+        '--lambda',
     }
 
 
@@ -57,17 +60,26 @@ class ToolsConsole:
             "Usage: pyprotect.py [options]"
             "\n"
             "\nOptions:"
-            "\n    --help, -h                Show this help message and exit."
-            "\n    --input, -in FILE         Input .py file"
-            "\n    --output, -out FILE       Output .py file (default: obfuscated_<input>)"
+            "\n    --help                Show this help message and exit."
+            "\n    --input  FILE         Input .py file"
+            "\n    --output FILE         Output .py file (default: obfuscated_<input>)"
             "\n"
             "\nObfuscation options:"
             "\n    --bytecode            Obfuscate using marshal bytecode loader"
-            "\n        --compress        Apply zlib.compress before base64 (recommended)"
-            "\n                              (valid only when --bytecode is set)"
+            "\n    --lambda              Obfuscate using nested lambda expressions"
+            "\n    --hybrid              Hybrid obfuscation combining bytecode and lambda"
+            "\n    --compress            Enable compression for bytecode obfuscation"
             "\n"
-            "\nExamples:"
-            "\n    pyprotect.py --input <input_file> --output <output_file> <obfuscation_option>"
+        )
+    
+    @staticmethod
+    def examples():
+        print(
+            "Examples:"
+            "\n    pyprotect.py --input <input_file> --output <output_file> <obfuscation_option> [--compress=optional]"
+            "\n    pyprotect.py --input script.py --output obf_script.py --bytecode --compress"
+            "\n    pyprotect.py --input script.py --output obf_script.py --lambda"
+            "\n    pyprotect.py --input test.py --hybrid"
         )
 
     @staticmethod
