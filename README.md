@@ -18,12 +18,13 @@ Options:
 
 Obfuscation options:
     --bytecode            Obfuscate using marshal bytecode loader
-        --compress        Apply zlib.compress before base64 (recommended)
-                              (valid only when --bytecode is set)
+    --lambda              Obfuscate using nested lambda expressions
+    --hybrid              Hybrid obfuscation combining bytecode and lambda
+    --compress            Enable compression for bytecode obfuscation
 
 Examples:
-    pyprotect.py --input test.py --output obf_test.py --bytecode
-    pyprotect.py --input test.py --output obf_test.py --bytecode --compress
+    pyprotect.py --input <input_file> --output <output_file> <obfuscation_option> [--compress=optional]
+    pyprotect.py --input script.py --output obf_script.py --bytecode --compress
 ```
 
 ## How It Works
